@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Perfume Recommender Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="./frontend/style.css" />
+</head>
+<body>
+    <div class="row">
+      <div class="col-md-9">
+        <div class="container-fluid intro">
+          <div class="content text-center">
+              <h1>Fragrance Fitter</h1>
+              <p>Discover the perfect perfume tailored for every special occasion. Make your moments unforgettable with the ideal fragrance.</p>
+          </div>
+        </div>
+        <div class="mx-2">
+          <div class="container mb-md-5 chat-container">
+            <div id="messages" class="mb-3"></div>
+            <div class="input-group input-container">
+                <input type="text" id="userInput" class="form-control" placeholder="Type your message here..." />
+                <button class="btn" id="send-btn">Send</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-3 get-reviews">
+        <div class="container">
+          <h5 class="text-black">Share Your Experience with Everyone</h5>
+          <div class="search-container">
+              <input type="text" id="searchInput" class="form-control" placeholder="Search perfume by name..." oninput="searchPerfume()" />
+              <div id="dropdown" class="dropdown-menu"></div>
+          </div>
+          <div id="searchResults"></div>
+        </div>
+
+        <div class="container mt-2" id="recentlyAddedReviews" style="max-height: 700px; overflow-y: auto; padding-right: 10px;">
+          <h4 class="text-black mt-5" style="font-size: 15px; font-weight: bold;">Recently Added Reviews</h4>
+          <div id="recentReviewsContent"></div>
+        </div>
+      
+      </div>
+    </div>
+
+    <!-- Reviews Pane
+    <div id="reviewsPane" class="reviews-pane">
+      <h5>Reviews</h5>
+      <div id="reviewsContent"></div>
+      <button class="btn btn-secondary mt-3" onclick="closeReviewsPane()">Close</button>
+    </div> -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="reviewModalLabel" aria-hidden="true">
+      <div class="modal-dialog review-model">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="reviewModalLabel">Add Review</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="reviewForm">
+              <div class="mb-3">
+                <label for="perfumeName" class="form-label">Perfume Name</label>
+                <input type="text" class="form-control" id="perfumeName" disabled>
+              </div>
+              <div class="mb-3">
+                <label for="user-name" class="form-label">Your Name</label>
+                <input type="text" class="form-control" id="user-name" required>
+              </div>
+              <div class="mb-3">
+                <label for="review_text" class="form-label">Review</label>
+                <textarea class="form-control" id="review_text" rows="8" required></textarea>
+              </div>
+              <button type="submit" class="btn">Submit Review</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./frontend/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

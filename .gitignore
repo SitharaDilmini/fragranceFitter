@@ -1,0 +1,5 @@
+env/*
+label_encoders/*
+model/*
+fragranceFitter.db
+_pycache_/*
